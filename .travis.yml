@@ -24,7 +24,7 @@ before_install:
 - mkdir -p lib
 - gcloud auth activate-service-account --key-file client-secret.json
 install:
-- gcloud config set project continuous-deployment-python
+- gcloud config set project leo-cd-try
 - gcloud -q components update gae-python
 - pip install -r requirements.txt -t lib/
 deploy:
