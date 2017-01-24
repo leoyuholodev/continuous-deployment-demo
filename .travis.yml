@@ -27,16 +27,16 @@ install:
 - gcloud config set project leo-cd-try
 - gcloud -q components update gae-python
 - pip install -r requirements.txt -t lib/
-deploy:
-    provider: gae
-    # Skip cleanup so api_key.py and vendored dependencies are still there
-    skip_cleanup: true
-    keyfile: client-secret.json
-    project: leo-cd-try
-    default: true
-    on:
-        all_branches: true
+#deploy:
+#    provider: gae
+#    # Skip cleanup so api_key.py and vendored dependencies are still there
+#    skip_cleanup: true
+#    keyfile: client-secret.json
+#    project: leo-cd-try
+#    default: true
+#    on:
+#        all_branches: true
 script:
 - python test_main.py
-# - gcloud -q preview app deploy app.yaml --promote
-# - python e2e_test.py
+- gcloud -q preview app deploy app.yaml --promote
+- python e2e_test.py
